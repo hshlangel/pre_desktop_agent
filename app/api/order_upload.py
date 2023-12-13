@@ -83,6 +83,26 @@ class APIOrderUpload():
                     Logger().logger.error('amount field is not a number or floating point number')
                     return Exceptions.ERR_UPLOAD_VALUES_AMOUNT_NOT_NUMBER
                 
+                # 订单号不能超过30个字符
+                if len(upload_order.order_no) > 30:
+                    Logger().logger.error('The order no field cannot exceed 30 characters')
+                    return Exceptions.ERR_UPLOAD_ORDER_NO_LEN_LIMIT_30
+
+                # 业务名称不能超过30个字符
+                if len(upload_order.biz_name) > 30:
+                    Logger().logger.error('The business name field cannot exceed 30 characters')
+                    return Exceptions.ERR_UPLOAD_BUSINESS_NAME_LEN_LIMIT_30
+                
+                # 订单号不能含有'.'字符
+                if '.' in upload_order.order_no:
+                    Logger().logger.error('The order no cannot contain the . character')
+                    return Exceptions.ERR_UPLOAD_ORDER_NO_CONTAIN_POINT_CHAR
+
+                # 业务名称不能含有'.'字符
+                if '.' in upload_order.biz_name:
+                    Logger().logger.error('The business name cannot contain the . characters')
+                    return Exceptions.ERR_UPLOAD_BUSINESS_NAME_CONTAIN_POINT_CHAR
+                
                 # 校驗錢包地址格式
                 if NetWorkType.NWT_ETH == AppCache().get_login_network():
                     if not re.match(NetWorkRegular.NWR_ETH, upload_order.wallet_address):
