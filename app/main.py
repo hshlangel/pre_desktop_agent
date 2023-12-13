@@ -35,7 +35,7 @@ def check_app_update(host, port, table : TableAgentConfig, process_token : str)-
     try:
         # 獲取github線上文件數據
         yaml_file = agent_config.get('yaml_file', '')
-        url = f'https://github.com/hshlangel/pre_desktop_agent_action/raw/main/configurations/{yaml_file}'
+        url = f'https://github.com/BlockATMOnLine/blockatm-guard-action/raw/main/configurations/{yaml_file}'
 
         res = requests.get(url, timeout=(5, 10))
 
