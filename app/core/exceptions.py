@@ -58,4 +58,6 @@ class Exceptions():
                                    "上傳訂單號不能含有'.'字符, 請檢查後重新上传", "上传订单号不能含有'.'字符, 请检查后重新上传"])
     ERR_UPLOAD_BUSINESS_NAME_CONTAIN_POINT_CHAR = ExValue([329, "The business name cannot contain the '.' character. Please double-check and re-upload the orders.", 
                                    "上傳業務名称不能含有'.'字符, 請檢查後重新上传", "上传业务名称不能含有'.'字符, 请检查后重新上传"])
+    ERR_UPLOAD_ORDER_NO_EMPTY = ExValue([330, "The order number cannot be empty. Please double-check and re-upload the orders.", 
+                                   "訂單號不能為空, 請檢查後重新上传", "订单号不能为空, 请检查后重新上传"])
     
